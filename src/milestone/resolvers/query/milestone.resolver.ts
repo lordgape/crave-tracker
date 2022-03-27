@@ -1,14 +1,12 @@
-
 import { Query, Resolver } from '@nestjs/graphql';
+import { MilestoneService } from 'src/milestone/milestone.service';
 import { MilestoneType } from '../../types/milestone.type';
 
 @Resolver((of) => MilestoneType)
 export class MilestoneQueryResolver {
-  @Query((returns) => MilestoneType)
+  constructor(private milestoneService: MilestoneService) {}
+  @Query((returns) => [MilestoneType])
   milestones() {
-    return {
-      id: '12344s',
-      title: 'My milestone',
-    };
+    return this.milestoneService.getMilestones();
   }
 }

@@ -5,9 +5,12 @@ import { v4 as uuid } from 'uuid';
 
 @Injectable()
 export class MilestoneService {
-  constructor(private store: Milestone[] = []) {}
+  
+  private milestoneStore: Milestone[] = [];
 
-  async createMilestone(createMilestoneDto: CreateMileStoneDto): Promise<Milestone> {
+  async createMilestone(
+    createMilestoneDto: CreateMileStoneDto,
+  ): Promise<Milestone> {
     const { title } = createMilestoneDto;
 
     const milestone = {
@@ -15,8 +18,12 @@ export class MilestoneService {
       title,
     };
 
-    this.store.push(milestone);
+    this.milestoneStore.push(milestone);
 
     return milestone;
   }
+
+  async getMilestones() : Promise<Milestone[]> {
+    return this.milestoneStore;
+   }
 }

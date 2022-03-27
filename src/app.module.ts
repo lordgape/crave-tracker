@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 import { MilestoneModule } from './milestone/milestone.module';
+import { TaskModule } from './task/task.module';
 
 // TODO: Implement database connection using an ORM.
 
@@ -14,6 +15,7 @@ import { MilestoneModule } from './milestone/milestone.module';
       autoSchemaFile: true,
     }),
     MilestoneModule,
+    TaskModule,
   ],
   controllers: [AppController],
   providers: [AppService],
