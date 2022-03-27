@@ -5,5 +5,6 @@ import { TaskService } from './task.service';
 
 @Module({
   providers: [TaskQueryResolver, TaskMutationResolver, TaskService],
+  exports: [TaskService],
 })
 export class TaskModule {}

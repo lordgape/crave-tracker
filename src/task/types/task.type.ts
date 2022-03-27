@@ -1,4 +1,4 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 @ObjectType('Task')
 export class TaskType {
@@ -10,4 +10,7 @@ export class TaskType {
 
   @Field()
   isCompleted: boolean;
+
+  @Field(() => ID)
+  milestoneId: string;
 }

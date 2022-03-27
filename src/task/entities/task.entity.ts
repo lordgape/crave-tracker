@@ -1,13 +1,16 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class Task {
-    @PrimaryColumn()
-    id: string
-    
-    @Column()
-    title:string
+  @PrimaryColumn()
+  id: string;
 
-    @Column()
-    isCompleted: boolean
+  @Column()
+  title: string;
+
+  @Column()
+  isCompleted: boolean;
+
+  @Column()
+  milestoneId: string;
 }

@@ -8,12 +8,13 @@ export class TaskService {
   private taskStore: Task[] = [];
 
   async createTask(taskInput: CreateTaskDto): Promise<Task> {
-    const { title } = taskInput;
+    const { title, milestoneId } = taskInput;
 
     const task = {
       id: uuid(),
       title,
       isCompleted: false,
+      milestoneId,
     };
 
     this.taskStore.push(task);
@@ -23,5 +24,9 @@ export class TaskService {
 
   async getTasks(): Promise<Task[]> {
     return this.taskStore;
+  }
+
+  async getManyTasks(milestoneId: string): Promise<Task[]> {
+    return this.taskStore.filter((task) => task.milestoneId == milestoneId);
   }
 }
