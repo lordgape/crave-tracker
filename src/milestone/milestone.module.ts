@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
-import { MilestoneResolver } from './resolvers/query/milestone.resolver';
+import { MilestoneQueryResolver } from './resolvers/query/milestone.resolver';
+import { MilestoneService } from './milestone.service';
 
 @Module({
-    providers:[MilestoneResolver]
+    providers:[MilestoneQueryResolver, MilestoneService]
 })
 export class MilestoneModule {}
