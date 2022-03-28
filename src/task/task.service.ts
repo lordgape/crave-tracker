@@ -3,7 +3,7 @@ import { CreateTaskDto } from './dtos/create-Task.dto';
 import { Task } from './entities/task.entity';
 import { v4 as uuid } from 'uuid';
 import { UpdateTaskDto } from './dtos/update-task.dto';
-import MilestoneStore from 'src/milestone/milestone-store.service';
+import MilestoneStore from '../milestone/milestone-store.service';
 
 @Injectable()
 export class TaskService {

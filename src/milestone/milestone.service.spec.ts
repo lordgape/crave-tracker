@@ -1,6 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { MilestoneService } from './milestone.service';
 
+// TODO: Increase test coverage 
+
 describe('MilestoneService', () => {
   let service: MilestoneService;
 
@@ -15,4 +17,13 @@ describe('MilestoneService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  describe('getMilestones', () => {
+    it('Can get all milestones', async () => {
+      const result = await service.getMilestones();
+      expect(result).toEqual([]);
+    });
+
+  });
+
 });
