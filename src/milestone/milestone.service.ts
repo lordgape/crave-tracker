@@ -2,11 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { CreateMileStoneDto } from './dtos/create-milestone.dto';
 import { Milestone } from './entities/milestone.entity';
 import { v4 as uuid } from 'uuid';
+import MilestoneStore  from './milestone-store.service';
 
 @Injectable()
 export class MilestoneService {
   
-  private milestoneStore: Milestone[] = [];
 
   async createMilestone(
     createMilestoneDto: CreateMileStoneDto,
@@ -18,12 +18,12 @@ export class MilestoneService {
       title,
     };
 
-    this.milestoneStore.push(milestone);
+    MilestoneStore.addItem(milestone);
 
     return milestone;
   }
 
-  async getMilestones() : Promise<Milestone[]> {
-    return this.milestoneStore;
-   }
+  async getMilestones(): Promise<Milestone[]> {
+    return MilestoneStore.getStore();
+  }
 }
