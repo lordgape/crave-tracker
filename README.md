@@ -40,4 +40,4 @@ $ npm run test:cov
 
 ## License
 
-Hatchblog [MIT licensed](LICENSE).
+Crave-tracker [MIT licensed](LICENSE).
